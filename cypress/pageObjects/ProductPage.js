@@ -1,21 +1,19 @@
 class ProductPage {
   getProductTitle() {
-    return cy.get('.product-title');
+    return cy.get('.name');
   }
-
   getProductPrice() {
-    return cy.get('.product-price');
+    return cy.get('.price-container');
   }
-
   getAddToCartButton() {
-    return cy.get('.add-to-cart-button');
+    return cy.contains('a', 'Add to cart');
   }
-
   getProductDescription() {
-    return cy.get('.product-description');
+    return cy.get('#more-information, .description, .tab-pane p');
   }
-
   getProductImage() {
-    return cy.get('.product-image');
+    return cy.get('.carousel-inner .active img');
   }
 }
+
+export default new ProductPage();
