@@ -17,6 +17,7 @@
   "homepage": "https://github.com/DDefty/qa_demoblaze_cypress#readme",
   "description": "",
   "dependencies": {
-    "cypress": "^14.4.0"
+    "cypress": "^14.4.0",
+    "cypress-dotenv": "^3.0.1"
   }
 }
