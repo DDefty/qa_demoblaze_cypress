@@ -1,25 +1,24 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login', (username, password) => {
+  cy.visit('/');
+  cy.contains('Log in').click();
+  cy.get('#loginusername').type(username);
+  cy.get('#loginpassword').type(password);
+  cy.get('button[onclick="logIn()"]').click();
+});
+
+Cypress.Commands.add('register', (username, password) => {
+  cy.visit('/');
+  cy.contains('Sign up').click();
+  cy.get('#sign-username').type(username);
+  cy.get('#sign-password').type(password);
+  cy.get('button[onclick="register()"]').click();
+  cy.on('window:alert', (str) => {
+  });
+});
+
+Cypress.Commands.add('addToCart', (productName) => {
+  cy.contains('.card-title', productName).click();
+  cy.contains('a', 'Add to cart').click();
+  cy.on('window:alert', (str) => {
+  });
+});
