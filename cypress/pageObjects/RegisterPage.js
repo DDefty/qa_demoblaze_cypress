@@ -21,3 +21,5 @@ class RegisterPage {
     cy.get('.error-message').should('be.visible');
   }
 }
+
+export default new RegisterPage();

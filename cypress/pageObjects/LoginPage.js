@@ -28,3 +28,6 @@ class LoginPage {
     cy.url().should('include', '/login');
   }
 }
+
+
+export default new LoginPage();

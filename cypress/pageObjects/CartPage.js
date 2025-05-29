@@ -1,4 +1,19 @@
 class CartPage {
+  goToCart() {
+    cy.contains('Cart').click();
+  }
+
+  getCartProduct(productName) {
+    return cy.get('#tbodyid').contains('td', productName);
+  }
+
+  deleteProduct(productName) {
+    this.getCartProduct(productName)
+      .parent('tr')
+      .within(() => {
+        cy.contains('Delete').click();
+      });
+  }
   get cartItems() {
     return cy.get('.cart-item');
   }
@@ -31,3 +46,5 @@ class CartPage {
     this.totalPrice.should('contain', '0.00');
   }
 }
+
+export default new CartPage();

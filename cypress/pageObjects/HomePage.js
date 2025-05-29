@@ -23,3 +23,4 @@ class HomePage {
     return cy.get('.featured-products');
   }
 }
+
